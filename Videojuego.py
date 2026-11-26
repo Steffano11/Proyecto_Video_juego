@@ -14,9 +14,9 @@ White = (255,255,255)
 Red = (255,0,0)
 
 #Titulo del juego
-pygame.display.set_caption("Adventure in the jungle")
 
 #Crear Ventana
+pygame.display.set_caption("Adventure in the jungle")
 width = 1225
 height = 750
 
@@ -24,14 +24,14 @@ height = 750
 pantalla = pygame.display.set_mode((width,height))
 
 #Crear Fondo
-fondo = pygame.image.load("Fondo_Videojuego.png").convert()
+fondo = pygame.image.load("imagenes/Fondo_Videojuego.png").convert()
 fondo = pygame.transform.scale(fondo, (width,height)) #Para que la imagen se adecue segun la pantalla
 clock = pygame.time.Clock()
-fondo_inicio = pygame.image.load("fondo_1.png").convert()
+fondo_inicio = pygame.image.load("imagenes/fondo_1.png").convert()
 fondo_inicio = pygame.transform.scale(fondo_inicio,(width,height))
-fondo_game_over = pygame.image.load("game_over.png").convert()
+fondo_game_over = pygame.image.load("imagenes/game_over.png").convert()
 fondo_game_over = pygame.transform.scale(fondo_game_over, (750,700))
-fondo_ganar = pygame.image.load("Fondo_ganar.jpg")
+fondo_ganar = pygame.image.load("imagenes/Fondo_ganar.jpg")
 fondo_ganar = pygame.transform.scale(fondo_ganar, (750,700))
 #Para centrar el game over
 game_over_x = (width - fondo_game_over.get_width()) // 2
@@ -41,22 +41,22 @@ ganar_over_x = (width - fondo_ganar.get_width()) // 2
 ganar_over_y = (height - fondo_ganar.get_height()) // 2
 
 #Imagenes
-correr = [pygame.image.load(os.path.join("Personaje_run_0.png")),pygame.image.load(os.path.join("Personaje_run_1.png")),pygame.image.load(os.path.join("Personaje_run_2.png")),
-          pygame.image.load(os.path.join("Personaje_run_3.png")),pygame.image.load(os.path.join("Personaje_run_4.png")),pygame.image.load(os.path.join("Personaje_run_5.png")),
-          pygame.image.load(os.path.join("Personaje_run_6.png")),pygame.image.load(os.path.join("Personaje_run_7.png"))]
-saltar = pygame.image.load(os.path.join("jump_3.png"))
-agachado = [pygame.image.load(os.path.join("agachado.png")),
-            pygame.image.load(os.path.join("agachado.png"))]
-puas_1 = [pygame.image.load(os.path.join("spikes_1.png")),
-                   pygame.image.load(os.path.join("spikes_1.png")),
-                   pygame.image.load(os.path.join("spikes_1.png"))]
-puas_2 = [pygame.image.load(os.path.join("spikes_2.png")),
-                pygame.image.load(os.path.join("spikes_2.png")),
-                pygame.image.load(os.path.join("spikes_2.png"))]
-proyectil_obstaculo = [pygame.image.load(os.path.join("proyectil_normal.png")),
-        pygame.image.load(os.path.join("proyectil_normal.png"))]
-final_boss = [pygame.image.load(os.path.join("goku_black_parado.png")),pygame.image.load(os.path.join("goku_black_botando_poder_2.png"))]
-proyectil_jefe_1 = pygame.image.load(os.path.join("proyectil_jefe.png"))
+correr = [pygame.image.load(os.path.join("imagenes/Personaje_run_0.png")),pygame.image.load(os.path.join("imagenes/Personaje_run_1.png")),pygame.image.load(os.path.join("imagenes/Personaje_run_2.png")),
+          pygame.image.load(os.path.join("imagenes/Personaje_run_3.png")),pygame.image.load(os.path.join("imagenes/Personaje_run_4.png")),pygame.image.load(os.path.join("imagenes/Personaje_run_5.png")),
+          pygame.image.load(os.path.join("imagenes/Personaje_run_6.png")),pygame.image.load(os.path.join("imagenes/Personaje_run_7.png"))]
+saltar = pygame.image.load(os.path.join("imagenes/jump_3.png"))
+agachado = [pygame.image.load(os.path.join("imagenes/agachado.png")),
+            pygame.image.load(os.path.join("imagenes/agachado.png"))]
+puas_1 = [pygame.image.load(os.path.join("imagenes/spikes_1.png")),
+                   pygame.image.load(os.path.join("imagenes/spikes_1.png")),
+                   pygame.image.load(os.path.join("imagenes/spikes_1.png"))]
+puas_2 = [pygame.image.load(os.path.join("imagenes/spikes_2.png")),
+                pygame.image.load(os.path.join("imagenes/spikes_2.png")),
+                pygame.image.load(os.path.join("imagenes/spikes_2.png"))]
+proyectil_obstaculo = [pygame.image.load(os.path.join("imagenes/proyectil_normal.png")),
+        pygame.image.load(os.path.join("imagenes/proyectil_normal.png"))]
+final_boss = [pygame.image.load(os.path.join("imagenes/goku_black_parado.png")),pygame.image.load(os.path.join("imagenes/goku_black_botando_poder_2.png"))]
+proyectil_jefe_1 = pygame.image.load(os.path.join("imagenes/proyectil_jefe.png"))
 
 proyectiles = []
 #Creamos la clase de nuestro personaje
@@ -138,7 +138,7 @@ class JefeFinal:
         self.rect.x = self.x
         self.rect.y = self.y
         self.tiempo_ultimo_disparo = pygame.time.get_ticks()
-        self.animacion_disparo = [pygame.image.load(os.path.join("goku_black_botando_poder_2.png"))]
+        self.animacion_disparo = [pygame.image.load(os.path.join("imagenes/goku_black_botando_poder_2.png"))]
     def update(self):
         self.y += self.velocidad_y * self.direccion_y #actualiza posicion vertical
         #Para que el jefe no se salga de la pantalla
@@ -242,7 +242,7 @@ class obstaculo_3(obstaculos_game):
 tipo_de_letra = pygame.font.Font("freesansbold.ttf", 45)
 def puntaje():
     global puntos, tipo_de_letra
-    puntos += 100
+    puntos += 10
     texto = tipo_de_letra.render("Score: " +  str(puntos), True, (White))
     textRect = texto.get_rect()
     textRect.center = (1050,40)
