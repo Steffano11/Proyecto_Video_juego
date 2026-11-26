@@ -267,7 +267,7 @@ def main():
     conteo_de_muertes = 0
     puntos = 0
     jefe_final = None
-    mixer.music.load("a-hero-of-the-80s-126684.mp3")
+    mixer.music.load("musica/a-hero-of-the-80s-126684.mp3")
     mixer.music.play(-1) #para que la musica se repita
     while True:
         for event in pygame.event.get():
@@ -296,7 +296,7 @@ def main():
 
         #Condicion para ganar el juego
         if puntos == 50000:
-            mixer.music.load("cancion_ganador.mp3")
+            mixer.music.load("musica/cancion_ganador.mp3")
             mixer.music.play()
             ganar()
 
@@ -340,7 +340,7 @@ def main():
                         conteo_de_muertes += 1
                         menu(conteo_de_muertes)
                     else:
-                        mixer.music.load("risa_de_Black.mp3")
+                        mixer.music.load("musica/risa_de_Black.mp3")
                         mixer.music.play()
                         conteo_de_muertes += 1
                         menu(conteo_de_muertes)
